@@ -16,15 +16,9 @@
     
     
     
-    // print the scores, marking the highest
+    // print the scores
     for (var i = 0; i < scores.length; i++) {
-      output = "Bubble solution #" + i + " score: " + scores[i];
-      
-      if (scores[i] == highScore) {
-        output = output + " *";
-      }
-      
-      console.log(output);
+      console.log( oneLineRepresentationOfSolution(i, scores[i], highScore) );
     }
     
     
@@ -51,6 +45,17 @@
       }
       
       return highScore;
+    };
+    
+    function oneLineRepresentationOfSolution(index, score, highScore) {
+      
+      var oneLiner = "Bubble solution #" + index + " score: " + score;
+      
+      if (score == highScore) {
+        oneLiner = oneLiner + " *";
+      }
+      
+      return oneLiner;
     };
     
   </script>
