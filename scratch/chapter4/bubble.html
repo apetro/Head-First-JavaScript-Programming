@@ -14,13 +14,7 @@
     var highScore = getHighScore(scores);
     var bestSolutions = [];
     
-    
-    
-    // print the scores
-    for (var i = 0; i < scores.length; i++) {
-      console.log( oneLineRepresentationOfSolution(i, scores[i], highScore) );
-    }
-    
+    printScores(scores);
     
     console.log("Quantity Bubbles tests: " + scores.length);
     console.log("Highest bubble score: " + highScore);
@@ -57,6 +51,17 @@
       
       return oneLiner;
     };
+    
+    function printScores(scores) {
+      
+      var highScore = getHighScore(scores);
+      
+      // print the scores
+      for (var i = 0; i < scores.length; i++) {
+        console.log( oneLineRepresentationOfSolution(i, scores[i], highScore) );
+      }
+      
+    }
     
   </script>
 </head>
