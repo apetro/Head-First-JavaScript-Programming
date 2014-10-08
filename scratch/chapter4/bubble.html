@@ -12,21 +12,17 @@
                   41, 53, 55, 61, 51, 44];
     var output;
     var highScore = getHighScore(scores);
-    var bestSolutions = [];
     
     printScores(scores);
     
     console.log("Quantity Bubbles tests: " + scores.length);
     console.log("Highest bubble score: " + highScore);
+    console.log("Highest scoring solutions: " + bestSolutions(scores) );
     
-    // find the indexes having that highest score
-    for (var i = 0; i < scores.length; i++) {
-      if (scores[i] == highScore) {
-        bestSolutions.push(i);
-      }
-    }
     
-    console.log("Highest scoring solutions: " + bestSolutions);
+    
+    
+    
     
     function getHighScore(scores){
       
@@ -61,6 +57,22 @@
         console.log( oneLineRepresentationOfSolution(i, scores[i], highScore) );
       }
       
+    }
+    
+    function bestSolutions(scores) {
+      
+      var bestSolutions = [];
+      
+      var highScore = getHighScore(scores);
+      
+      // find the indexes having that highest score
+      for (var i = 0; i < scores.length; i++) {
+        if (scores[i] == highScore) {
+          bestSolutions.push(i);
+        }
+      }
+      
+      return bestSolutions;
     }
     
   </script>
