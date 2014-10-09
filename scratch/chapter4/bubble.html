@@ -14,7 +14,7 @@
     printScores(scores);
     
     console.log("Quantity Bubbles tests: " + scores.length);
-    console.log("Highest bubble score: " + getHighScore(scores) );
+    console.log("Highest bubble score: " + computeHighScore(scores) );
     console.log("Highest scoring solutions: " + bestSolutions(scores) );
     
     
@@ -22,17 +22,17 @@
     
     
     
-    function getHighScore(scores){
+    function computeHighScore(scores){
       
-      var highScore = 0;
+      var maximum = 0;
       for (var i = 0; i < scores.length; i++) {
         
-        if (scores[i] > highScore) {
-          highScore = scores[i];
+        if (scores[i] > maximum) {
+          maximum = scores[i];
         }
       }
       
-      return highScore;
+      return maximum;
     };
     
     function oneLineRepresentationOfSolution(index, score, highScore) {
@@ -48,7 +48,7 @@
     
     function printScores(scores) {
       
-      var highScore = getHighScore(scores);
+      var highScore = computeHighScore(scores);
       
       // print the scores
       for (var i = 0; i < scores.length; i++) {
@@ -61,7 +61,7 @@
       
       var bestSolutions = [];
       
-      var highScore = getHighScore(scores);
+      var highScore = computeHighScore(scores);
       
       // find the indexes having that highest score
       for (var i = 0; i < scores.length; i++) {
