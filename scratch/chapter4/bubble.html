@@ -59,7 +59,11 @@
     };
     
 
-    
+    /**
+     * Returns an array of indexes into scores/prices such that indicated scores
+     * 1) Have the scoreToMatch, and 
+     * 2) have the lowest price of products at that price point.
+     */
     function indexesOfCheapestSolutionsWithScore(
       scores, prices, scoreToMatch) {
 
