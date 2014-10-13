@@ -32,18 +32,7 @@
     
     
     
-    function computeMaximum(arrayOfNumbers){
-      
-      var maximum = 0;
-      for (var i = 0; i < arrayOfNumbers.length; i++) {
-        
-        if (arrayOfNumbers[i] > maximum) {
-          maximum = arrayOfNumbers[i];
-        }
-      }
-      
-      return maximum;
-    };
+
     
     function oneLineRepresentationOfSolution(index, score, price, highScore) {
       
@@ -69,23 +58,7 @@
       
     };
     
-    /**
-     *  Return an array containing zero or more indexes into the 
-     *  arrayOfNumbers such that arrayOfNumbers[ index ] == valueToMatch.
-     */
-    function indexesWithValue(arrayOfNumbers, valueToMatch) {
-      
-      var indexes = [];
-      
-      // find the indexes having that highest score
-      for (var i = 0; i < arrayOfNumbers.length; i++) {
-        if (arrayOfNumbers[i] == valueToMatch) {
-          indexes.push(i);
-        }
-      }
-      
-      return indexes;
-    };
+
     
     function indexesOfCheapestSolutionsWithHighestScore(scores, prices) {
       
@@ -112,6 +85,40 @@
       }
       
       return cheapestSolutionsWithHighScore;
+    };
+    
+    
+    // Generic Array functions.
+    
+    /**
+     *  Return an array containing zero or more indexes into the 
+     *  arrayOfNumbers such that arrayOfNumbers[ index ] == valueToMatch.
+     */
+    function indexesWithValue(arrayOfNumbers, valueToMatch) {
+      
+      var indexes = [];
+      
+      // find the indexes having that highest score
+      for (var i = 0; i < arrayOfNumbers.length; i++) {
+        if (arrayOfNumbers[i] == valueToMatch) {
+          indexes.push(i);
+        }
+      }
+      
+      return indexes;
+    };
+    
+    function computeMaximum(arrayOfNumbers){
+      
+      var maximum = 0;
+      for (var i = 0; i < arrayOfNumbers.length; i++) {
+        
+        if (arrayOfNumbers[i] > maximum) {
+          maximum = arrayOfNumbers[i];
+        }
+      }
+      
+      return maximum;
     };
     
   </script>
