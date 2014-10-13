@@ -26,7 +26,8 @@
     console.log("Highest scoring solutions: " + 
        indexesWithValue(scores, bestBubbleScore) );
     console.log("Cheapest of highest scoring solutions: " +
-       indexesOfCheapestSolutionsWithHighestScore(scores, prices));
+       indexesOfCheapestSolutionsWithHighestScore(
+         scores, prices, bestBubbleScore));
     
     
     
@@ -59,10 +60,9 @@
     
 
     
-    function indexesOfCheapestSolutionsWithHighestScore(scores, prices) {
-      
-      var highestScore = computeMaximum(scores);
-      
+    function indexesOfCheapestSolutionsWithHighestScore(
+      scores, prices, highestScore) {
+
       // the indexes of the solutions with highest scores
       var bestSolutions = indexesWithValue(scores, highestScore);
       
