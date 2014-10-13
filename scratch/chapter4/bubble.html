@@ -17,7 +17,7 @@
              .20, .25, .30, .25, .24, .25, .25, .25, 
              .27, .25, .26, .29];
     
-    printScores(scores);
+    printScores(scores, prices);
     
     console.log("Quantity Bubbles tests: " + scores.length);
     console.log("Highest bubble score: " + computeHighScore(scores) );
@@ -41,9 +41,11 @@
       return maximum;
     };
     
-    function oneLineRepresentationOfSolution(index, score, highScore) {
+    function oneLineRepresentationOfSolution(index, score, price, highScore) {
       
-      var oneLiner = "Bubble solution #" + index + " score: " + score;
+      var oneLiner = "Bubble solution #" + index + 
+                             " price: " + price +                             
+                             " score: " + score;
       
       if (score == highScore) {
         oneLiner = oneLiner + " *";
@@ -52,16 +54,16 @@
       return oneLiner;
     };
     
-    function printScores(scores) {
+    function printScores(scores, prices) {
       
       var highScore = computeHighScore(scores);
       
       // print the scores
       for (var i = 0; i < scores.length; i++) {
-        console.log( oneLineRepresentationOfSolution(i, scores[i], highScore) );
+        console.log( oneLineRepresentationOfSolution(i, scores[i], prices[i], highScore) );
       }
       
-    }
+    };
     
     function bestSolutions(scores) {
       
