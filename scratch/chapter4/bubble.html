@@ -22,7 +22,7 @@
     console.log("Quantity Bubbles tests: " + scores.length);
     console.log("Highest bubble score: " + computeHighScore(scores) );
     console.log("Highest scoring solutions: " + 
-       indexesOfHighestScores(scores) );
+       indexesOfLargestNumbers(scores) );
     console.log("Cheapest of highest scoring solutions: " +
        indexesOfCheapestSolutionsWithHighestScore(scores, prices));
     
@@ -67,26 +67,26 @@
       
     };
     
-    function indexesOfHighestScores(scores) {
+    function indexesOfLargestNumbers(arrayOfNumbers) {
       
-      var bestSolutions = [];
+      var indexes = [];
       
-      var highScore = computeHighScore(scores);
+      var maximum = computeHighScore(scores);
       
       // find the indexes having that highest score
-      for (var i = 0; i < scores.length; i++) {
-        if (scores[i] == highScore) {
-          bestSolutions.push(i);
+      for (var i = 0; i < arrayOfNumbers.length; i++) {
+        if (arrayOfNumbers[i] == maximum) {
+          indexes.push(i);
         }
       }
       
-      return bestSolutions;
+      return indexes;
     };
     
     function indexesOfCheapestSolutionsWithHighestScore(scores, prices) {
       
       // the indexes of the solutions with highest scores
-      var bestSolutions = indexesOfHighestScores(scores);
+      var bestSolutions = indexesOfLargestNumbers(scores);
       
       // seed lowestPrice with the first relevant
       var lowestPrice = prices[ bestSolutions[0] ];
