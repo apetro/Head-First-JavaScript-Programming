@@ -21,8 +21,8 @@
     
     console.log("Quantity Bubbles tests: " + scores.length);
     console.log("Highest bubble score: " + computeHighScore(scores) );
-    console.log("Highest scoring solutions: " + bestSolutions(scores) );
-    
+    console.log("Highest scoring solutions: " + 
+       indexesOfHighestScores(scores) );
     
     
     
@@ -65,7 +65,7 @@
       
     };
     
-    function bestSolutions(scores) {
+    function indexesOfHighestScores(scores) {
       
       var bestSolutions = [];
       
