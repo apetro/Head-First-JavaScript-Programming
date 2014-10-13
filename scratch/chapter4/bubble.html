@@ -23,6 +23,8 @@
     console.log("Highest bubble score: " + computeHighScore(scores) );
     console.log("Highest scoring solutions: " + 
        indexesOfHighestScores(scores) );
+    console.log("Cheapest of highest scoring solutions: " +
+       indexesOfCheapestSolutionsWithHighestScore(scores, prices));
     
     
     
@@ -79,7 +81,32 @@
       }
       
       return bestSolutions;
-    }
+    };
+    
+    function indexesOfCheapestSolutionsWithHighestScore(scores, prices) {
+      
+      // the indexes of the solutions with highest scores
+      var bestSolutions = indexesOfHighestScores(scores);
+      
+      // seed lowestPrice with the first relevant
+      var lowestPrice = prices[ bestSolutions[0] ];
+      
+      var cheapestSolutionsWithHighScore = [];
+      
+      for (var i = 0; i < bestSolutions.length; i++) {
+        if (prices[ bestSolutions[i] ] < lowestPrice) {
+          lowestPrice = prices[i];
+        }
+      }
+      
+      for (var i = 0; i < bestSolutions.length; i++) {
+        if (prices[ bestSolutions[i] ] == lowestPrice) {
+          cheapestSolutionsWithHighScore.push(bestSolutions[i]);
+        }
+      }
+      
+      return cheapestSolutionsWithHighScore;
+    };
     
   </script>
 </head>
