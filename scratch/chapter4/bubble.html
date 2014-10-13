@@ -67,22 +67,27 @@
     function indexesOfCheapestSolutionsWithScore(
       scores, prices, scoreToMatch) {
 
-      // the indexes of the solutions with highest scores
+      // indexes into scores of products with matching score
       var relevantScoreIndexes = indexesWithValue(scores, scoreToMatch);
       
-      // seed lowestPrice with the first relevant
+      // prices of products with matching score
       var pricesOfRelevantSolutions = mask(prices, relevantScoreIndexes);
+      
+      // lowest price of products with matching score
       var lowestPrice = computeMinimum(pricesOfRelevantSolutions);
       
-      var cheapestSolutionsWithScore = [];
-      
-      for (var i = 0; i < relevantScoreIndexes.length; i++) {
-        if (prices[ relevantScoreIndexes[i] ] == lowestPrice) {
-          cheapestSolutionsWithScore.push(relevantScoreIndexes[i]);
-        }
-      }
-      
-      return cheapestSolutionsWithScore;
+      // indexes into pricesOfRelevantSolutions with lowest price
+      var cheapRelevantPriceIndexes =
+          indexesWithValue(pricesOfRelevantSolutions, lowestPrice);
+
+      // we want those elements of relevantScoreIndexes that are lowest price.
+      // indexes into pricesOfRelevantSolutions 
+      // are indexes into relevantScoreIndexes 
+      // because those arrays are parallel.
+      //
+      // So we want to apply the mask of cheapRelevantPriceIndexes on the 
+      // relevantScoreIndexes array.
+      return mask(relevantScoreIndexes, cheapRelevantPriceIndexes);
     };
     
     
