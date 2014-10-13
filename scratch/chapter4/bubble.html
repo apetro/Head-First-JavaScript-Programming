@@ -64,22 +64,22 @@
       scores, prices, scoreToMatch) {
 
       // the indexes of the solutions with highest scores
-      var bestSolutions = indexesWithValue(scores, scoreToMatch);
+      var relevantScoreIndexes = indexesWithValue(scores, scoreToMatch);
       
       // seed lowestPrice with the first relevant
-      var lowestPrice = prices[ bestSolutions[0] ];
+      var lowestPrice = prices[ relevantScoreIndexes[0] ];
       
       var cheapestSolutionsWithScore = [];
       
-      for (var i = 0; i < bestSolutions.length; i++) {
-        if (prices[ bestSolutions[i] ] < lowestPrice) {
+      for (var i = 0; i < relevantScoreIndexes.length; i++) {
+        if (prices[ relevantScoreIndexes[i] ] < lowestPrice) {
           lowestPrice = prices[i];
         }
       }
       
-      for (var i = 0; i < bestSolutions.length; i++) {
-        if (prices[ bestSolutions[i] ] == lowestPrice) {
-          cheapestSolutionsWithScore.push(bestSolutions[i]);
+      for (var i = 0; i < relevantScoreIndexes.length; i++) {
+        if (prices[ relevantScoreIndexes[i] ] == lowestPrice) {
+          cheapestSolutionsWithScore.push(relevantScoreIndexes[i]);
         }
       }
       
