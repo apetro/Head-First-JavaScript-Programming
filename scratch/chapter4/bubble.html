@@ -19,7 +19,7 @@
              
     var bestBubbleScore = computeMaximum(scores);
     
-    printScores(scores, prices);
+    printScores(scores, prices, bestBubbleScore);
     
     console.log("Quantity Bubbles tests: " + scores.length);
     console.log("Highest bubble score: " + bestBubbleScore );
@@ -47,9 +47,7 @@
       return oneLiner;
     };
     
-    function printScores(scores, prices) {
-      
-      var highScore = computeMaximum(scores);
+    function printScores(scores, prices, highScore) {
       
       // print the scores
       for (var i = 0; i < scores.length; i++) {
