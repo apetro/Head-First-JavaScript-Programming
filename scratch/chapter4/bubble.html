@@ -26,7 +26,7 @@
     console.log("Highest scoring solutions: " + 
        indexesWithValue(scores, bestBubbleScore) );
     console.log("Cheapest of highest scoring solutions: " +
-       indexesOfCheapestSolutionsWithHighestScore(
+       indexesOfCheapestSolutionsWithScore(
          scores, prices, bestBubbleScore));
     
     
@@ -60,16 +60,16 @@
     
 
     
-    function indexesOfCheapestSolutionsWithHighestScore(
-      scores, prices, highestScore) {
+    function indexesOfCheapestSolutionsWithScore(
+      scores, prices, scoreToMatch) {
 
       // the indexes of the solutions with highest scores
-      var bestSolutions = indexesWithValue(scores, highestScore);
+      var bestSolutions = indexesWithValue(scores, scoreToMatch);
       
       // seed lowestPrice with the first relevant
       var lowestPrice = prices[ bestSolutions[0] ];
       
-      var cheapestSolutionsWithHighScore = [];
+      var cheapestSolutionsWithScore = [];
       
       for (var i = 0; i < bestSolutions.length; i++) {
         if (prices[ bestSolutions[i] ] < lowestPrice) {
@@ -79,11 +79,11 @@
       
       for (var i = 0; i < bestSolutions.length; i++) {
         if (prices[ bestSolutions[i] ] == lowestPrice) {
-          cheapestSolutionsWithHighScore.push(bestSolutions[i]);
+          cheapestSolutionsWithScore.push(bestSolutions[i]);
         }
       }
       
-      return cheapestSolutionsWithHighScore;
+      return cheapestSolutionsWithScore;
     };
     
     
