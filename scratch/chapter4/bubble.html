@@ -67,15 +67,10 @@
       var relevantScoreIndexes = indexesWithValue(scores, scoreToMatch);
       
       // seed lowestPrice with the first relevant
-      var lowestPrice = prices[ relevantScoreIndexes[0] ];
+      var pricesOfRelevantSolutions = mask(prices, relevantScoreIndexes);
+      var lowestPrice = computeMinimum(pricesOfRelevantSolutions);
       
       var cheapestSolutionsWithScore = [];
-      
-      for (var i = 0; i < relevantScoreIndexes.length; i++) {
-        if (prices[ relevantScoreIndexes[i] ] < lowestPrice) {
-          lowestPrice = prices[i];
-        }
-      }
       
       for (var i = 0; i < relevantScoreIndexes.length; i++) {
         if (prices[ relevantScoreIndexes[i] ] == lowestPrice) {
@@ -119,6 +114,38 @@
       
       return maximum;
     };
+    
+    function computeMinimum(arrayOfNumbers) {
+      
+      var minimum = arrayOfNumbers[0];
+      
+      for (var i = 0; i < arrayOfNumbers.length; i++) {
+        
+        if (arrayOfNumbers[i] < minimum) {
+          minimum = arrayOfNumbers[i];
+        }
+        
+      }
+      
+      return minimum;
+    };
+    
+    /**
+     * Returns the array containing the elements of arrayToMask at 
+     * the indexesToMask.
+     */ 
+    function mask( arrayToMask, indexesToMask) {
+      
+      var maskedArray = [];
+      
+      for (var i = 0; i < indexesToMask.length; i++) {
+        
+        maskedArray.push( arrayToMask[ indexesToMask[i] ]);
+        
+      }
+      
+      return maskedArray;
+    }
     
   </script>
 </head>
